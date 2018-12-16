@@ -3,6 +3,9 @@
 #define SSPAPP_H
 
 #include <vector>
+
+#include "graph.h"
+
 using std::ifstream;
 using std::string;
 using std::ostream;
@@ -16,4 +19,6 @@ public:
 
 private:
   Graph myGraph;
-}
+};
+
+#endif // SSPAPP_H

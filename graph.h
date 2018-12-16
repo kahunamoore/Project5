@@ -3,6 +3,12 @@
 #define GRAPH_H
 
 #include <vector>
+#include <map>
+#include <string>
+
+#include "minpriority.h"
+
+
 using std::ifstream;
 using std::string;
 using std::ostream;
@@ -19,10 +25,6 @@ public:
   string getShortestPath(string from, string to);
 
 private:
-  string currentSource;
-  map<string,Vertex> verticies;
-  map<string, vector<Neighbor>> adjList;
-  MinPriorityQueue minQ;
 
   class Vertex
   {
@@ -32,7 +34,7 @@ private:
     Vertex();
     Vertex(string, int);
     ~Vertex();
-  }
+  };
 
   class Neighbor
   {
@@ -42,10 +44,16 @@ private:
     Neighbor();
     Neighbor(string, int);
     ~Neighbor();
-  }
+  };
 
   void buildSSPTree(string source);
   void relax(string u, string v, int weight);
-}
+
+    string currentSource;
+    map<string,Vertex> verticies;
+    map<string, vector<Neighbor>> adjList;
+    MinPriorityQueue minQ;
+
+};
 
 #endif

@@ -16,7 +16,7 @@ Graph::Graph()
 Graph::Vertex::Vertex()
 {
   pi = "";
-  key = NULL;
+  key = 0;
 }
 
 Graph::Vertex::Vertex(string s, int i)
@@ -28,10 +28,10 @@ Graph::Vertex::Vertex(string s, int i)
 Graph::Neighbor::Neighbor()
 {
   name = "";
-  weight = NULL;
+  weight = 0;
 }
 
-Graph::Neightbor::Neighbor(string s, int i)
+Graph::Neighbor::Neighbor(string s, int i)
 {
   name = s;
   weight = i;
@@ -45,16 +45,16 @@ Graph::~Graph()
 Graph::Vertex::~Vertex()
 {
   pi = "";
-  key = NULL;
+  key = 0;
 }
 
 Graph::Neighbor::~Neighbor()
 {
   name = "";
-  weight = NULL;
+  weight = 0;
 }
 
-Graph::addVertex(string name)
+void Graph::addVertex(string name)
 {
 
 }
