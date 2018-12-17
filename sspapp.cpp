@@ -1,17 +1,60 @@
+
 #include <iostream>
 
 #include "sspapp.h"
+using std::cin;
+using std::cout;
+using std::endl;
 
-void SSPapp::readGraph() {
-    std::cout << "TODO: readGraph" << std::endl;
+void SSPapp::readGraph()
+{
+    //std::cout << "TODO: readGraph" << std::endl;
     // pseudo code
     // read Vertex count
+    int vertexCount;
+    cout << "Enter number of verticies: " << endl;
+    cin >> vertexCount;
     // read Vertexes
-    // read Neighbor count
-    // read Neighbors
+    for(int i = 0; i < vertexCount; i++)
+    {
+      string vertexName;
+      cout << "Enter vertex name: " << endl;
+      cin >> vertexName;
+      myGraph.addVertex(vertexName);
+    }
+
+    // read Edge count
+    int edgeCount;
+    cout << "Enter number of edges: " << endl;
+    cin >> edgeCount;
+    // read Edges
+    for (int i = 0; i < edgeCount; i++)
+    {
+      string from;
+      string to;
+      int weight;
+      cout << "Enter starting vertex, ending vertex, and weight: " << endl;
+      cin >> from;
+      cin >> to;
+      cin >> weight;
+      myGraph.addEdge(from, to, weight);
+    }
 }
 
-void SSPapp::processQueries() {
+void SSPapp::printGraph() {
+    for (auto vert : myGraph.verticies) {
+        std::cout << vert.first << ", " << vert.second.pi << std::endl;
+    }
+
+    for (auto adj : myGraph.adjList) {
+        for (auto neighbor : adj.second) {
+            std::cout << adj.first << ", " << neighbor.name << ", " << neighbor.weight << std::endl;
+        }
+    }
+}
+
+void SSPapp::processQueries()
+{
     std::cout << "TODO: processQueries" << std::endl;
     // while (not eof || input == quit
     //    read query
@@ -20,9 +63,10 @@ void SSPapp::processQueries() {
     // endwhile
 }
 
-int main(int argc, char** argv) {
-    SSPapp app;
-
-    app.readGraph();
-    app.processQueries();
+int main()
+{
+    SSPapp myApp;
+    myApp.readGraph();
+    myApp.printGraph();
+    myApp.processQueries();
 }

@@ -41,4 +41,4 @@ private:
   int right(int i);                    //returns right child
 };
 
-#endif
+#endif //MINPRIORITY_H

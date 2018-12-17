@@ -16,6 +16,7 @@ class SSPapp
 public:
   void readGraph();
   void processQueries();
+  void printGraph();
 
 private:
   Graph myGraph;

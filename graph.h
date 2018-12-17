@@ -5,14 +5,13 @@
 #include <vector>
 #include <map>
 #include <string>
+//#include <sort>
 
 #include "minpriority.h"
 
-
-using std::ifstream;
 using std::string;
-using std::ostream;
 using std::vector;
+//using std::sort;
 using std::map;
 
 class Graph
@@ -26,16 +25,6 @@ public:
 
 private:
 
-  class Vertex
-  {
-  public:
-    string pi;
-    int key;
-    Vertex();
-    Vertex(string, int);
-    ~Vertex();
-  };
-
   class Neighbor
   {
   public:
@@ -46,14 +35,24 @@ private:
     ~Neighbor();
   };
 
+  class Vertex
+  {
+  public:
+    string pi;
+    int key;
+    Vertex();
+    Vertex(string, int);
+    ~Vertex();
+  };
+
   void buildSSPTree(string source);
   void relax(string u, string v, int weight);
 
-    string currentSource;
-    map<string,Vertex> verticies;
-    map<string, vector<Neighbor>> adjList;
-    MinPriorityQueue minQ;
-
+public:
+  string currentSource;
+  map<string, Vertex> verticies;
+  map<string, vector<Neighbor>> adjList;
+  MinPriorityQueue minQ;
 };
 
-#endif
+#endif //GRAPH_H
